@@ -6,14 +6,10 @@ import (
 	"github.com/hndada/maths"
 )
 
-type (
-	Real         = maths.Real
-	RealFunction = maths.RealFunction
-)
+type Real = maths.Real
 
 func main() {
-	fn := func(x Real) Real { return x * x }
-	f := RealFunction{Evaluate: fn}
+	f := maths.NewFunction(func(x Real) Real { return x * x })
 	fmt.Println(f.Evaluate(2))
 	fmt.Println(f.Limit(2))
 	fmt.Println(f.IsContinuous(2))

@@ -8,6 +8,10 @@ type RealFunction struct {
 
 type Function = RealFunction
 
+func NewFunction(evaluate func(Real) Real) Function {
+	return Function{Evaluate: evaluate}
+}
+
 func (f Function) Limit(x Real) (Real, bool) {
 	h := LimitEpsilon
 	left := f.Evaluate(x - h)
